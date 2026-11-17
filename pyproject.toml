@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csv-excel-toolkit"
+version = "1.0.0"
+description = "中小企業の事務作業でよくあるCSV/Excel処理をまとめたCLIツール"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Atsushi Kobayashi" }]
+keywords = ["csv", "excel", "cli", "data-processing"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+excel = ["openpyxl>=3.1"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+csv-excel-toolkit = "csv_excel_toolkit.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
